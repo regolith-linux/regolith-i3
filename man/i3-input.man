@@ -1,0 +1,79 @@
+i3-input(1)
+===========
+Michael Stapelberg <michael+i3@stapelberg.de>
+v4.1.2, April 2012
+
+== NAME
+
+i3-input - interactively take a command for i3 window manager
+
+== SYNOPSIS
+
+i3-input [-s <socket>] [-F <format>] [-l <limit>] [-P <prompt>] [-f <font>] [-v]
+
+== DESCRIPTION
+
+i3-input is a tool to take commands (or parts of a command) composed by
+the user, and send it/them to i3. This is useful, for example, for the
+mark/goto command.
+
+You can press Escape to close i3-input without sending any commands.
+
+== OPTIONS
+
+-s <socket>::
+Specify the path to the i3 IPC socket (it should not be necessary to use this
+option, i3-input will figure out the path on its own).
+
+-F <format>::
+Every occurrence of "%s" in the <format> string is replaced by the user input,
+and the result is sent to i3 as a command. Default value is "%s".
+
+-l <limit>::
+Set the maximum allowed length of the user input to <limit> characters.
+i3-input will automatically issue the command when the user input reaches that
+length.
+
+-P <prompt>::
+Display the <prompt> string in front of user input text field.
+The prompt string is not included in the user input/command.
+
+-f <font>::
+Use the specified X11 core font (use +xfontsel+ to chose a font).
+
+-v::
+Show version and exit.
+
+== EXAMPLES
+
+Mark a container with a single character:
+------------------------------------------------
+i3-input -F 'mark %s' -l 1 -P 'Mark: '
+------------------------------------------------
+
+Go to the container marked with above example:
+-----------------------------------------------------
+i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: '
+-----------------------------------------------------
+
+== ENVIRONMENT
+
+=== I3SOCK
+
+i3-input handles the different sources of socket paths in the following order:
+
+* I3SOCK environment variable
+* I3SOCK gets overwritten by the -s parameter, if specified
+* if neither are available, i3-input reads the socket path from the X11
+  property, which is the recommended way
+* if everything fails, i3-input tries +/tmp/i3-ipc.sock+
+
+The socket path is necessary to connect to i3 and actually issue the command.
+
+== SEE ALSO
+
+i3(1)
+
+== AUTHOR
+
+Michael Stapelberg and contributors

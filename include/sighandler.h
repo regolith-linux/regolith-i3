@@ -1,0 +1,17 @@
+/*
+ * vim:ts=4:sw=4:expandtab
+ *
+ * i3 - an improved dynamic tiling window manager
+ * © 2009 Michael Stapelberg and contributors (see also: LICENSE)
+ *
+ */
+#pragma once
+
+#include <config.h>
+
+/**
+ * Configured a signal handler to gracefully handle crashes and allow the user
+ * to generate a backtrace and rescue their session.
+ *
+ */
+void setup_signal_handler(void);

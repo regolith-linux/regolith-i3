@@ -1,0 +1,264 @@
+i3bar input protocol
+====================
+Michael Stapelberg <michael@i3wm.org>
+August 2012
+
+This document explains the protocol in which i3bar expects its input. It
+provides support for colors, urgency, shortening and easy manipulation.
+
+== Rationale for choosing JSON
+
+Before describing the protocol, let’s cover why JSON is a building block of
+this protocol.
+
+1. Other bar display programs such as dzen2 or xmobar are using in-band
+   signaling: they recognize certain sequences (like ^fg(#330000) in your input
+   text). We would like to avoid that and separate information from
+   meta-information. By information, we mean the actual output, like the IP
+   address of your ethernet adapter and by meta-information, we mean in which
+   color it should be displayed right now.
+2. It is easy to write a simple script which manipulates part(s) of the input.
+   Each block of information (like a block for the disk space indicator, a block
+   for the current IP address, etc.) can be identified specifically and modified
+   in whichever way you like.
+3. It remains easy to write a simple script which just suffixes (or prefixes) a
+   status line input, because tools like i3status will output their JSON in
+   such a way that each line array will be terminated by a newline. Therefore,
+   you are not required to use a streaming JSON parser, but you can use any
+   JSON parser and write your script in any programming language. In fact, you
+   can decide to not bother with the JSON parsing at all and just inject your
+   output at a specific position (beginning or end).
+4. Relying on JSON does not introduce any new dependencies. In fact, the IPC
+   interface of i3 also uses JSON, therefore i3bar already depends on JSON.
+
+The only point against using JSON is computational complexity. If that really
+bothers you, just use the plain text input format (which i3bar will continue to
+support).
+
+== The protocol
+
+The first message of the protocol is a header block, which contains (at least)
+the version of the protocol to be used. In case there are significant changes
+(not only additions), the version will be incremented. i3bar will still
+understand the old protocol version, but in order to use the new one, you need
+to provide the correct version. The header block is terminated by a newline and
+consists of a single JSON hash:
+
+*Minimal example*:
+------------------------------
+{ "version": 1 }
+------------------------------
+
+*All features example*:
+------------------------------
+{ "version": 1, "stop_signal": 10, "cont_signal": 12, "click_events": true }
+------------------------------
+
+(Note that before i3 v4.3 the precise format had to be +{"version":1}+,
+byte-for-byte.)
+
+What follows is an infinite array (so it should be parsed by a streaming JSON
+parser, but as described above you can go for a simpler solution), whose
+elements are one array per status line. A status line is one unit of
+information which should be displayed at a time. i3bar will not display any
+input until the status line is complete. In each status line, every block will
+be represented by a JSON hash:
+
+*Example*:
+------
+[
+
+ [
+  {
+   "full_text": "E: 10.0.0.1 (1000 Mbit/s)",
+   "color": "#00ff00"
+  },
+  {
+   "full_text": "2012-01-05 20:00:01"
+  }
+ ],
+
+ [
+  {
+   "full_text": "E: 10.0.0.1 (1000 Mbit/s)",
+   "color": "#00ff00"
+  },
+  {
+   "full_text": "2012-01-05 20:00:02"
+  }
+ ],
+ …
+------
+
+Please note that this example was pretty printed for human consumption.
+i3status and others will output single statuslines in one line, separated by
+\n.
+
+You can find an example of a shell script which can be used as your
++status_command+ in the bar configuration at
+https://github.com/i3/i3/blob/next/contrib/trivial-bar-script.sh
+
+=== Header in detail
+
+version::
+	The version number (as an integer) of the i3bar protocol you will use.
+stop_signal::
+	Specify to i3bar the signal (as an integer) to send to stop your
+	processing.
+	The default value (if none is specified) is SIGSTOP.
+cont_signal::
+	Specify to i3bar the signal (as an integer) to send to continue your
+	processing.
+	The default value (if none is specified) is SIGCONT.
+click_events::
+	If specified and true i3bar will write an infinite array (same as above)
+	to your stdin.
+
+=== Blocks in detail
+
+full_text::
+	The +full_text+ will be displayed by i3bar on the status line. This is the
+	only required key. If +full_text+ is an empty string, the block will be
+	skipped.
+short_text::
+	Where appropriate, the +short_text+ (string) entry should also be
+	provided. It will be used in case the status line needs to be shortened
+	because it uses more space than your screen provides. For example, when
+	displaying an IPv6 address, the prefix is usually (!) more relevant
+	than the suffix, because the latter stays constant when using autoconf,
+	while the prefix changes. When displaying the date, the time is more
+	important than the date (it is more likely that you know which day it
+	is than what time it is).
+color::
+	To make the current state of the information easy to spot, colors can
+	be used. For example, the wireless block could be displayed in red
+	(using the +color+ (string) entry) if the card is not associated with
+	any network and in green or yellow (depending on the signal strength)
+	when it is associated.
+	Colors are specified in hex (like in HTML), starting with a leading
+	hash sign. For example, +#ff0000+ means red.
+background::
+	Overrides the background color for this particular block.
+border::
+	Overrides the border color for this particular block.
+min_width::
+	The minimum width (in pixels) of the block. If the content of the
+	+full_text+ key take less space than the specified min_width, the block
+	will be padded to the left and/or the right side, according to the +align+
+	key. This is useful when you want to prevent the whole status line to shift
+	when value take more or less space between each iteration.
+        The value can also be a string. In this case, the width of the text given
+        by +min_width+ determines the minimum width of the block. This is useful
+        when you want to set a sensible minimum width regardless of which font you
+        are using, and at what particular size.
+align::
+	Align text on the +center+, +right+ or +left+ (default) of the block, when
+	the minimum width of the latter, specified by the +min_width+ key, is not
+	reached.
+name and instance::
+	Every block should have a unique +name+ (string) entry so that it can
+	be easily identified in scripts which process the output. i3bar
+	completely ignores the name and instance fields. Make sure to also
+	specify an +instance+ (string) entry where appropriate. For example,
+	the user can have multiple disk space blocks for multiple mount points.
+urgent::
+	A boolean which specifies whether the current value is urgent. Examples
+	are battery charge values below 1 percent or no more available disk
+	space (for non-root users). The presentation of urgency is up to i3bar.
+separator::
+	A boolean which specifies whether a separator line should be drawn
+	after this block. The default is true, meaning the separator line will
+	be drawn. Note that if you disable the separator line, there will still
+	be a gap after the block, unless you also use +separator_block_width+.
+separator_block_width::
+	The amount of pixels to leave blank after the block. In the middle of
+	this gap, a separator line will be drawn unless +separator+ is
+	disabled. Normally, you want to set this to an odd value (the default
+	is 9 pixels), since the separator line is drawn in the middle.
+markup::
+	A string that indicates how the text of the block should be parsed. Set to
+	+"pango"+ to use https://developer.gnome.org/pango/stable/PangoMarkupFormat.html[Pango markup].
+	Set to +"none"+ to not use any markup (default). Pango markup only works
+	if you use a pango font.
+
+If you want to put in your own entries into a block, prefix the key with an
+underscore (_). i3bar will ignore all keys it doesn’t understand, and prefixing
+them with an underscore makes it clear in every script that they are not part
+of the i3bar protocol.
+
+*Example*:
+------------------------------------------
+{
+ "full_text": "E: 10.0.0.1 (1000 Mbit/s)",
+ "_ethernet_vendor": "Intel"
+}
+------------------------------------------
+
+In the following example, the longest (widest) possible value of the block is
+used to set the minimum width:
+
+------------------------------------------
+{
+ "full_text": "CPU 4%",
+ "min_width": "CPU 100%",
+ "align": "left"
+}
+------------------------------------------
+
+An example of a block which uses all possible entries follows:
+
+*Example*:
+------------------------------------------
+{
+ "full_text": "E: 10.0.0.1 (1000 Mbit/s)",
+ "short_text": "10.0.0.1",
+ "color": "#00ff00",
+ "background": "#1c1c1c",
+ "border": "#ee0000",
+ "min_width": 300,
+ "align": "right",
+ "urgent": false,
+ "name": "ethernet",
+ "instance": "eth0",
+ "separator": true,
+ "separator_block_width": 9
+}
+------------------------------------------
+
+=== Click events
+
+If enabled i3bar will send you notifications if the user clicks on a block and
+looks like this:
+
+name::
+	Name of the block, if set
+instance::
+	Instance of the block, if set
+x, y::
+	X11 root window coordinates where the click occurred
+button::
+	X11 button ID (for example 1 to 3 for left/middle/right mouse button)
+relative_x, relative_y::
+    Coordinates where the click occurred, with respect to the top left corner
+    of the block
+width, height::
+    Width and height (in px) of the block
+modifiers::
+    An array of the modifiers active when the click occurred. The order in which
+    modifiers are listed is not guaranteed.
+
+*Example*:
+------------------------------------------
+{
+ "name": "ethernet",
+ "instance": "eth0",
+ "button": 1,
+ "modifiers": ["Shift", "Mod1"],
+ "x": 1320,
+ "y": 1400,
+ "relative_x": 12,
+ "relative_y": 8,
+ "width": 50,
+ "height": 22
+}
+------------------------------------------
