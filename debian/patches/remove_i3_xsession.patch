@@ -1,0 +1,50 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -36,12 +36,6 @@
+ 	etc/config.keycodes
+ 
+ applicationsdir = $(datarootdir)/applications
+-xsessionsdir = $(datarootdir)/xsessions
+-dist_applications_DATA = \
+-	share/applications/i3.desktop
+-dist_xsessions_DATA = \
+-	share/xsessions/i3.desktop \
+-	share/xsessions/i3-with-shmlog.desktop
+ 
+ noinst_LIBRARIES = libi3.a
+ 
+--- a/share/xsessions/i3-with-shmlog.desktop
++++ /dev/null
+@@ -1,6 +0,0 @@
+-[Desktop Entry]
+-Name=i3 (with debug log)
+-Comment=improved dynamic tiling window manager
+-Exec=i3-with-shmlog
+-Type=Application
+-Keywords=tiling;wm;windowmanager;window;manager;
+--- a/share/xsessions/i3.desktop
++++ /dev/null
+@@ -1,9 +0,0 @@
+-[Desktop Entry]
+-Name=i3
+-Comment=improved dynamic tiling window manager
+-Exec=i3
+-TryExec=i3
+-Type=Application
+-X-LightDM-DesktopName=i3
+-DesktopNames=i3
+-Keywords=tiling;wm;windowmanager;window;manager;
+--- a/share/applications/i3.desktop
++++ /dev/null
+@@ -1,11 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Name=i3
+-NoDisplay=true
+-GenericName=A dynamic tiling window manager
+-Comment=improved dynamic tiling window manager
+-Exec=i3
+-X-GNOME-WMName=i3
+-X-GNOME-Autostart-Phase=WindowManager
+-X-GNOME-Provides=windowmanager
+-X-GNOME-Autostart-Notify=false
