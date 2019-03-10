@@ -1,0 +1,12 @@
+--- a/etc/config
++++ b/etc/config
+@@ -75,6 +75,9 @@
+ bindsym $mod+t layout tabbed
+ bindsym $mod+l layout toggle split
+ 
++# show/hide keybindings
++bindsym $mod+question exec /usr/bin/conky-toggle.sh
++
+ # toggle tiling / floating
+ bindsym $mod+Shift+f floating toggle
+ 

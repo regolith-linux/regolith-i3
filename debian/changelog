@@ -1,3 +1,22 @@
+regolith-i3 (4.16-1ubuntu4) bionic; urgency=medium
+
+  * Add Conky keybindings hotkey. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 09 Mar 2019 22:13:43 -0800
+
+regolith-i3 (4.16-1ubuntu3) bionic; urgency=medium
+
+  * Fix move window to workspace configuration. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Fri, 08 Mar 2019 06:51:11 -0800
+
+regolith-i3 (4.16-1ubuntu2) bionic; urgency=medium
+
+  * Override default i3 config with Regolith version.  
+    Deprecates regolith-i3-config package. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Thu, 07 Mar 2019 20:10:40 -0800
+
 regolith-i3 (4.16-1ubuntu1) bionic; urgency=medium
 
   * Remove the stock i3 xsession files 
