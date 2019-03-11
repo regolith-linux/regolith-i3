@@ -1,0 +1,10 @@
+--- a/etc/config
++++ b/etc/config
+@@ -192,5 +192,7 @@
+ 
+ exec --no-startup-id compton -f --config /etc/xdg/compton.conf
+ 
++exec --no-startup-id /usr/bin/regolith-ftue.sh
++
+ exec_always --no-startup-id feh --bg-scale --random /usr/share/backgrounds/ESP_*
+ 

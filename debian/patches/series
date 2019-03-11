@@ -2,3 +2,4 @@ remove_i3_xsession.patch
 regolith_config.patch
 fix_workspace_move.patch
 conky-keybindings.patch
+regolith-ftue.patch

@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu5) bionic; urgency=medium
+
+  * Update dependencies, add FTUE. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 10 Mar 2019 20:19:44 -0700
+
 regolith-i3 (4.16-1ubuntu4) bionic; urgency=medium
 
   * Add Conky keybindings hotkey. 
