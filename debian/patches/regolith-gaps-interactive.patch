@@ -1,0 +1,13 @@
+--- a/etc/config
++++ b/etc/config
+@@ -70,6 +70,10 @@
+ # enter fullscreen mode for the focused container
+ bindsym $mod+f fullscreen toggle
+ 
++# change gaps interactively
++bindsym $mod+minus gaps inner current minus 6
++bindsym $mod+plus gaps inner current plus 6
++
+ # change container layout (stacked, tabbed, toggle split)
+ bindsym $mod+s layout stacking
+ bindsym $mod+t layout tabbed

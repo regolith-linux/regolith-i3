@@ -1,0 +1,40 @@
+--- a/etc/config
++++ b/etc/config
+@@ -23,16 +23,16 @@
+ set $transparent #00000000
+ set $lucent    #00000088
+ 
+-set $ws1  "1   "
+-set $ws2  "2   "
+-set $ws3  "3   "
+-set $ws4  "4   "
+-set $ws5  "5   "
+-set $ws6  "6   "
+-set $ws7  "7   "
+-set $ws8  "8   "
+-set $ws9  "9   "
+-set $ws10 "0   "
++set $ws1  "1 <span foreground='#268bd2'></span> "
++set $ws2  "2 <span foreground='#2aa198'></span> "
++set $ws3  "3 <span foreground='#859900'></span> "
++set $ws4  "4 <span foreground='#b58900'></span> "
++set $ws5  "5 <span foreground='#cb4b10'></span> "
++set $ws6  "6 <span foreground='#dc322f'></span> "
++set $ws7  "7 <span foreground='#d33682'></span> "
++set $ws8  "8 <span foreground='#6c71c4'></span> "
++set $ws9  "9 <span foreground='#93a1a1'></span> "
++set $ws10 "0 <span foreground='#fdf6e3'></span> "
+ 
+ # Use Mouse+$mod to drag floating windows to their wanted position
+ floating_modifier $mod
+@@ -101,8 +101,8 @@
+ bindsym $mod+0 workspace $ws10
+ 
+ # cycle between workspace
+-bindsym $mod+n workspace next
+-bindsym $mod+p workspace prev
++bindsym $mod+Tab workspace next
++bindsym $mod+Shift+Tab workspace prev
+ 
+ # move focused container to workspace
+ bindsym $mod+Shift+1 move container to workspace $ws1

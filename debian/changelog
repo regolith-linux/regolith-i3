@@ -1,3 +1,21 @@
+regolith-i3 (4.16-1ubuntu8) bionic; urgency=medium
+
+  * Color per workspace on i3bar, use tab to cycle workspaces. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 17 Mar 2019 10:12:41 -0700
+
+regolith-i3 (4.16-1ubuntu7) bionic; urgency=medium
+
+  * Add unclutter-xfixes on start by default. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 17 Mar 2019 09:46:26 -0700
+
+regolith-i3 (4.16-1ubuntu6) bionic; urgency=medium
+
+  * Configure gaps interactively. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Fri, 15 Mar 2019 07:06:34 -0700
+
 regolith-i3 (4.16-1ubuntu5) bionic; urgency=medium
 
   * Update dependencies, add FTUE. 

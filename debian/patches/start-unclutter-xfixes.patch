@@ -1,0 +1,10 @@
+--- a/etc/config
++++ b/etc/config
+@@ -198,5 +198,7 @@
+ 
+ exec --no-startup-id /usr/bin/regolith-ftue.sh
+ 
++exec --no-startup-id /usr/bin/unclutter -b
++
+ exec_always --no-startup-id feh --bg-scale --random /usr/share/backgrounds/ESP_*
+ 

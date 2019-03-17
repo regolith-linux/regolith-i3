@@ -3,3 +3,6 @@ regolith_config.patch
 fix_workspace_move.patch
 conky-keybindings.patch
 regolith-ftue.patch
+regolith-gaps-interactive.patch
+start-unclutter-xfixes.patch
+i3bar-pango-color.patch
