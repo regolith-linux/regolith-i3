@@ -1,3 +1,16 @@
+regolith-i3 (4.16-1ubuntu10) bionic; urgency=medium
+
+  * Remove workspace 10 ("0") due to alpha ordering issue on bar. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 07 Apr 2019 10:16:53 -0700
+
+regolith-i3 (4.16-1ubuntu9) bionic; urgency=medium
+
+  * Do not hide the status bar by default. 
+  * Visual tweaks to active workspace in bar.
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 31 Mar 2019 21:02:58 -0700
+
 regolith-i3 (4.16-1ubuntu8) bionic; urgency=medium
 
   * Color per workspace on i3bar, use tab to cycle workspaces. 

@@ -1,6 +1,6 @@
 --- a/etc/config
 +++ b/etc/config
-@@ -23,16 +23,16 @@
+@@ -23,16 +23,15 @@
  set $transparent #00000000
  set $lucent    #00000088
  
@@ -23,12 +23,14 @@
 +set $ws7  "7 <span foreground='#d33682'></span> "
 +set $ws8  "8 <span foreground='#6c71c4'></span> "
 +set $ws9  "9 <span foreground='#93a1a1'></span> "
-+set $ws10 "0 <span foreground='#fdf6e3'></span> "
  
  # Use Mouse+$mod to drag floating windows to their wanted position
  floating_modifier $mod
-@@ -101,8 +101,8 @@
- bindsym $mod+0 workspace $ws10
+@@ -98,11 +97,10 @@
+ bindsym $mod+7 workspace $ws7
+ bindsym $mod+8 workspace $ws8
+ bindsym $mod+9 workspace $ws9
+-bindsym $mod+0 workspace $ws10
  
  # cycle between workspace
 -bindsym $mod+n workspace next
@@ -38,3 +40,46 @@
  
  # move focused container to workspace
  bindsym $mod+Shift+1 move container to workspace $ws1
+@@ -114,7 +112,6 @@
+ bindsym $mod+Shift+7 move container to workspace $ws7
+ bindsym $mod+Shift+8 move container to workspace $ws8
+ bindsym $mod+Shift+9 move container to workspace $ws9
+-bindsym $mod+Shift+0 move container to workspace $ws10
+ 
+ # reload the configuration file
+ bindsym $mod+Shift+c reload
+@@ -167,25 +164,18 @@
+ focus_follows_mouse no
+ 
+ # Configure the bar
+-
+ bar {
+-  mode hide
+-  # font pango:Source Code Pro 20, FontAwesome 8
+-  # font pango:DejaVu Sans Mono 10
+   font pango:Source Code Pro Medium 13
+   separator_symbol " "
+   status_command i3blocks
+   tray_output none
+-  # i3bar_command i3bar -t
+-  # height 36
+-  # strip_workspace_numbers yes
+ 
+   colors {
+       background $base03
+       statusline $base1
+       separator  $blue
+ #                        BORDER  BACKGROUND TEXT
+-      focused_workspace  $base02  $base02  $blue
++      focused_workspace  $base02  $base02  $base2
+       active_workspace   $base02  $base02  $base01
+       inactive_workspace $base03  $base03  $base01
+       urgent_workspace   $red     $red     $base3
+@@ -193,7 +183,6 @@
+ }
+ 
+ # Run other programs with i3
+-
+ exec --no-startup-id compton -f --config /etc/xdg/compton.conf
+ 
+ exec --no-startup-id /usr/bin/regolith-ftue.sh
