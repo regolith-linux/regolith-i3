@@ -34,7 +34,9 @@ Homepage: https://i3wm.org/
 Package: regolith-i3-wm
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, regolith-conky-config, rofi, gnome-screensaver, compton, feh, unclutter-xfixes
-Provides: x-window-manager
+Provides: x-window-manager, i3-wm
+Replaces: i3-wm
+Conflicts: i3-wm
 Recommends: xfonts-base, fonts-dejavu-core, libanyevent-i3-perl (>= 0.12), libjson-xs-perl, rxvt-unicode | x-terminal-emulator
 Description: improved dynamic tiling window manager
  Key features of i3 are good documentation, reasonable defaults (changeable in
