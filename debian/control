@@ -33,7 +33,7 @@ Homepage: https://i3wm.org/
 
 Package: regolith-i3-wm
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, regolith-conky-config, rofi, gnome-screensaver, compton, feh, unclutter-xfixes
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, regolith-conky-config, rofi, gnome-screensaver, compton, feh, unclutter-xfixes, regolith-xeventbind
 Provides: x-window-manager, i3-wm
 Replaces: i3-wm
 Conflicts: i3-wm

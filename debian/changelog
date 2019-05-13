@@ -1,3 +1,19 @@
+regolith-i3 (4.16-1ubuntu12) bionic; urgency=medium
+
+  * Add xeventbind program to refresh wallpaper when screen changes.
+  * Map common gnome-control-panel screens to hot key.
+  * Map launch browser to hot key.
+  * Add 'invisible' workspace.
+  * Misc cleanup.
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 12 May 2019 20:56:20 -0700
+
+regolith-i3 (4.16-1ubuntu11) bionic; urgency=medium
+
+  * Fix for #1: Avoid clashing with i3-wm over /etc/i3/config by @okin.
+ 
+ -- Ken Gilmer <kgilmer@gmail.com>  Mon, 06 May 2019 20:09:37 -0700
+
 regolith-i3 (4.16-1ubuntu10) bionic; urgency=medium
 
   * Remove workspace 10 ("0") due to alpha ordering issue on bar. 

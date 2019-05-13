@@ -1,6 +1,6 @@
 --- a/etc/config
 +++ b/etc/config
-@@ -23,16 +23,15 @@
+@@ -23,16 +23,17 @@
  set $transparent #00000000
  set $lucent    #00000088
  
@@ -14,23 +14,100 @@
 -set $ws8  "8   "
 -set $ws9  "9   "
 -set $ws10 "0   "
-+set $ws1  "1 <span foreground='#268bd2'></span> "
-+set $ws2  "2 <span foreground='#2aa198'></span> "
-+set $ws3  "3 <span foreground='#859900'></span> "
-+set $ws4  "4 <span foreground='#b58900'></span> "
-+set $ws5  "5 <span foreground='#cb4b10'></span> "
-+set $ws6  "6 <span foreground='#dc322f'></span> "
-+set $ws7  "7 <span foreground='#d33682'></span> "
-+set $ws8  "8 <span foreground='#6c71c4'></span> "
-+set $ws9  "9 <span foreground='#93a1a1'></span> "
++set $ws1  "1 <span foreground='#268bd2'></span>  "
++set $ws2  "2 <span foreground='#2aa198'></span>  "
++set $ws3  "3 <span foreground='#859900'></span>  "
++set $ws4  "4 <span foreground='#b58900'></span>  "
++set $ws5  "5 <span foreground='#cb4b10'></span>  "
++set $ws6  "6 <span foreground='#dc322f'></span>  "
++set $ws7  "7 <span foreground='#d33682'></span>  "
++set $ws8  "8 <span foreground='#6c71c4'></span>  "
++set $ws9  "9 <span foreground='#93a1a1'></span>  "
++# Invisible workspace
++set $ws10 " "
  
  # Use Mouse+$mod to drag floating windows to their wanted position
  floating_modifier $mod
-@@ -98,11 +97,10 @@
+@@ -40,7 +41,10 @@
+ hide_edge_borders smart
+ 
+ # start a terminal
+-bindsym $mod+Return exec st
++bindsym $mod+Return exec /usr/bin/st
++
++# start a web browser
++bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
+ 
+ # kill focused window
+ bindsym $mod+Shift+q kill
+@@ -48,24 +52,32 @@
+ # rofi app and window launchers
+ bindsym $mod+space exec rofi -show drun -theme regolith-theme
+ bindsym $mod+Shift+space exec rofi -show run -theme regolith-theme
+-bindsym $mod+w exec rofi -show window -theme regolith-theme
++bindsym $mod+Ctrl+space exec rofi -show window -theme regolith-theme
+ 
+-# change focus (try with vim keybiding for practice vim editor) (i3wm keybinding movement scheme conflict with vim wich will be disaster to use i3wm+vim together)
++# change focus
+ bindsym $mod+Left focus left
+ bindsym $mod+Down focus down
+ bindsym $mod+Up focus up
+ bindsym $mod+Right focus right
+ 
+-# alternatively, you can use the cursor keys:
++bindsym $mod+h focus left
++bindsym $mod+j focus down
++bindsym $mod+k focus up
++bindsym $mod+l focus right
++
++# move windows in workspaces
+ bindsym $mod+Shift+Left move left
+ bindsym $mod+Shift+Down move down
+ bindsym $mod+Shift+Up move up
+ bindsym $mod+Shift+Right move right
+ 
+-# split in horizontal orientation
+-bindsym $mod+h split h
+-# split in vertical orientation
+-bindsym $mod+v split v
++bindsym $mod+Shift+h move left
++bindsym $mod+Shift+j move down
++bindsym $mod+Shift+k move up
++bindsym $mod+Shift+l move right
++
++# toggle split orientation
++bindsym $mod+BackSpace split toggle
+ 
+ # enter fullscreen mode for the focused container
+ bindsym $mod+f fullscreen toggle
+@@ -74,19 +86,14 @@
+ bindsym $mod+minus gaps inner current minus 6
+ bindsym $mod+plus gaps inner current plus 6
+ 
+-# change container layout (stacked, tabbed, toggle split)
+-bindsym $mod+s layout stacking
+-bindsym $mod+t layout tabbed
+-bindsym $mod+l layout toggle split
+-
+ # show/hide keybindings
+-bindsym $mod+question exec /usr/bin/conky-toggle.sh
++bindsym $mod+Shift+question exec /usr/bin/conky-toggle.sh
+ 
+ # toggle tiling / floating
+ bindsym $mod+Shift+f floating toggle
+ 
+ # change focus between tiling / floating windows
+-bindsym $mod+Alt+space focus mode_toggle
++bindsym $mod+Shift+t focus mode_toggle
+ 
+ # switch to workspace
+ bindsym $mod+1 workspace $ws1
+@@ -98,11 +105,11 @@
  bindsym $mod+7 workspace $ws7
  bindsym $mod+8 workspace $ws8
  bindsym $mod+9 workspace $ws9
 -bindsym $mod+0 workspace $ws10
++bindsym $mod+grave workspace $ws10
  
  # cycle between workspace
 -bindsym $mod+n workspace next
@@ -40,15 +117,40 @@
  
  # move focused container to workspace
  bindsym $mod+Shift+1 move container to workspace $ws1
-@@ -114,7 +112,6 @@
+@@ -114,7 +121,7 @@
  bindsym $mod+Shift+7 move container to workspace $ws7
  bindsym $mod+Shift+8 move container to workspace $ws8
  bindsym $mod+Shift+9 move container to workspace $ws9
 -bindsym $mod+Shift+0 move container to workspace $ws10
++bindsym $mod+Shift+grave move container to workspace $ws10
  
  # reload the configuration file
  bindsym $mod+Shift+c reload
-@@ -167,25 +164,18 @@
+@@ -128,6 +135,15 @@
+ 
+ bindsym $mod+Shift+s exec systemctl suspend
+ 
++bindsym $mod+c exec gnome-control-center
++bindsym $mod+w exec gnome-control-center wifi
++bindsym $mod+b exec gnome-control-center bluetooth
++bindsym $mod+d exec gnome-control-center display
++bindsym $mod+n exec gnome-control-center network
++bindsym $mod+p exec gnome-control-center power
++bindsym $mod+s exec gnome-control-center sound
++
++
+ # resize window (you can also use the mouse for that)
+ mode "resize" {
+         # These bindings trigger as soon as you enter the resize mode
+@@ -142,7 +158,6 @@
+         bindsym Return mode "default"
+         bindsym Escape mode "default"
+ }
+-
+ bindsym $mod+r mode "resize"
+ 
+ # Disable titlebar
+@@ -167,25 +182,18 @@
  focus_follows_mouse no
  
  # Configure the bar
@@ -75,7 +177,7 @@
        active_workspace   $base02  $base02  $base01
        inactive_workspace $base03  $base03  $base01
        urgent_workspace   $red     $red     $base3
-@@ -193,7 +183,6 @@
+@@ -193,7 +201,6 @@
  }
  
  # Run other programs with i3
@@ -83,3 +185,9 @@
  exec --no-startup-id compton -f --config /etc/xdg/compton.conf
  
  exec --no-startup-id /usr/bin/regolith-ftue.sh
+@@ -202,3 +209,5 @@
+ 
+ exec_always --no-startup-id feh --bg-scale --random /usr/share/backgrounds/ESP_*
+ 
++exec --no-startup-id /usr/bin/xeventbind resolution /usr/bin/wallpaper-refresh.sh
++
