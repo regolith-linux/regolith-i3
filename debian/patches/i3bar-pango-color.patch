@@ -1,6 +1,18 @@
 --- a/etc/config
 +++ b/etc/config
-@@ -23,16 +23,17 @@
+@@ -2,8 +2,11 @@
+ #
+ # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+ 
++# This defines which key super maps to on your keyboard.  
++# Alt key is Mod1, and Windows key is Mod4
+ set $mod Mod4
+ 
++# This is the Solarized color palette.
+ set $base03    #002b36
+ set $base02    #073642
+ set $base01    #586e75
+@@ -23,16 +26,19 @@
  set $transparent #00000000
  set $lucent    #00000088
  
@@ -14,6 +26,7 @@
 -set $ws8  "8   "
 -set $ws9  "9   "
 -set $ws10 "0   "
++# This is the labels which describe each i3 workspace.
 +set $ws1  "1 <span foreground='#268bd2'></span>  "
 +set $ws2  "2 <span foreground='#2aa198'></span>  "
 +set $ws3  "3 <span foreground='#859900'></span>  "
@@ -23,12 +36,13 @@
 +set $ws7  "7 <span foreground='#d33682'></span>  "
 +set $ws8  "8 <span foreground='#6c71c4'></span>  "
 +set $ws9  "9 <span foreground='#93a1a1'></span>  "
++
 +# Invisible workspace
 +set $ws10 " "
  
  # Use Mouse+$mod to drag floating windows to their wanted position
  floating_modifier $mod
-@@ -40,7 +41,10 @@
+@@ -40,7 +46,10 @@
  hide_edge_borders smart
  
  # start a terminal
@@ -40,7 +54,7 @@
  
  # kill focused window
  bindsym $mod+Shift+q kill
-@@ -48,24 +52,32 @@
+@@ -48,24 +57,32 @@
  # rofi app and window launchers
  bindsym $mod+space exec rofi -show drun -theme regolith-theme
  bindsym $mod+Shift+space exec rofi -show run -theme regolith-theme
@@ -80,7 +94,7 @@
  
  # enter fullscreen mode for the focused container
  bindsym $mod+f fullscreen toggle
-@@ -74,19 +86,14 @@
+@@ -74,19 +91,14 @@
  bindsym $mod+minus gaps inner current minus 6
  bindsym $mod+plus gaps inner current plus 6
  
@@ -102,7 +116,7 @@
  
  # switch to workspace
  bindsym $mod+1 workspace $ws1
-@@ -98,11 +105,11 @@
+@@ -98,11 +110,11 @@
  bindsym $mod+7 workspace $ws7
  bindsym $mod+8 workspace $ws8
  bindsym $mod+9 workspace $ws9
@@ -117,7 +131,7 @@
  
  # move focused container to workspace
  bindsym $mod+Shift+1 move container to workspace $ws1
-@@ -114,7 +121,7 @@
+@@ -114,7 +126,7 @@
  bindsym $mod+Shift+7 move container to workspace $ws7
  bindsym $mod+Shift+8 move container to workspace $ws8
  bindsym $mod+Shift+9 move container to workspace $ws9
@@ -126,10 +140,20 @@
  
  # reload the configuration file
  bindsym $mod+Shift+c reload
-@@ -128,6 +135,15 @@
+@@ -122,12 +134,24 @@
+ # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+ bindsym $mod+Shift+r restart
  
++# exit i3
+ bindsym $mod+Shift+e exit
+ 
++# lock the screen
+ bindsym $mod+Escape exec gnome-screensaver-command --lock
+ 
++# put the system to sleep
  bindsym $mod+Shift+s exec systemctl suspend
  
++# shortcuts for common system configuration tasks
 +bindsym $mod+c exec gnome-control-center
 +bindsym $mod+w exec gnome-control-center wifi
 +bindsym $mod+b exec gnome-control-center bluetooth
@@ -138,11 +162,10 @@
 +bindsym $mod+p exec gnome-control-center power
 +bindsym $mod+s exec gnome-control-center sound
 +
-+
  # resize window (you can also use the mouse for that)
  mode "resize" {
          # These bindings trigger as soon as you enter the resize mode
-@@ -142,7 +158,6 @@
+@@ -142,7 +166,6 @@
          bindsym Return mode "default"
          bindsym Escape mode "default"
  }
@@ -150,7 +173,7 @@
  bindsym $mod+r mode "resize"
  
  # Disable titlebar
-@@ -167,25 +182,18 @@
+@@ -167,25 +190,18 @@
  focus_follows_mouse no
  
  # Configure the bar
@@ -177,17 +200,22 @@
        active_workspace   $base02  $base02  $base01
        inactive_workspace $base03  $base03  $base01
        urgent_workspace   $red     $red     $base3
-@@ -193,7 +201,6 @@
- }
+@@ -194,11 +210,18 @@
  
  # Run other programs with i3
--
+ 
++# Composite manager
  exec --no-startup-id compton -f --config /etc/xdg/compton.conf
  
++# Lanuch the shortcut Conky window on first login
  exec --no-startup-id /usr/bin/regolith-ftue.sh
-@@ -202,3 +209,5 @@
  
++# Hide the mouse pointer if unused for a duration
+ exec --no-startup-id /usr/bin/unclutter -b
+ 
++# Draw the desktop background.  Randomly select from a series of photos starting with ESP_
  exec_always --no-startup-id feh --bg-scale --random /usr/share/backgrounds/ESP_*
  
++# Refresh wallpaper when monitor configuration changes.
 +exec --no-startup-id /usr/bin/xeventbind resolution /usr/bin/wallpaper-refresh.sh
 +

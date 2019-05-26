@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu13) bionic; urgency=medium
+
+  * Add comments to i3 configuration file. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 25 May 2019 20:08:02 -0700
+
 regolith-i3 (4.16-1ubuntu12) bionic; urgency=medium
 
   * Add xeventbind program to refresh wallpaper when screen changes.
