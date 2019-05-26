@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu14) bionic; urgency=medium
+
+  * Add 10-20 additional workspaces. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 26 May 2019 15:32:17 -0700
+
 regolith-i3 (4.16-1ubuntu13) bionic; urgency=medium
 
   * Add comments to i3 configuration file. 

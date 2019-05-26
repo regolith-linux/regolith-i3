@@ -12,7 +12,7 @@
  set $base03    #002b36
  set $base02    #073642
  set $base01    #586e75
-@@ -23,16 +26,19 @@
+@@ -23,16 +26,29 @@
  set $transparent #00000000
  set $lucent    #00000088
  
@@ -27,22 +27,32 @@
 -set $ws9  "9   "
 -set $ws10 "0   "
 +# This is the labels which describe each i3 workspace.
-+set $ws1  "1 <span foreground='#268bd2'></span>  "
-+set $ws2  "2 <span foreground='#2aa198'></span>  "
-+set $ws3  "3 <span foreground='#859900'></span>  "
-+set $ws4  "4 <span foreground='#b58900'></span>  "
-+set $ws5  "5 <span foreground='#cb4b10'></span>  "
-+set $ws6  "6 <span foreground='#dc322f'></span>  "
-+set $ws7  "7 <span foreground='#d33682'></span>  "
-+set $ws8  "8 <span foreground='#6c71c4'></span>  "
-+set $ws9  "9 <span foreground='#93a1a1'></span>  "
++set $ws1   " 1 <span foreground='#268bd2'></span>  "
++set $ws2   " 2 <span foreground='#2aa198'></span>  "
++set $ws3   " 3 <span foreground='#859900'></span>  "
++set $ws4   " 4 <span foreground='#b58900'></span>  "
++set $ws5   " 5 <span foreground='#cb4b10'></span>  "
++set $ws6   " 6 <span foreground='#dc322f'></span>  "
++set $ws7   " 7 <span foreground='#d33682'></span>  "
++set $ws8   " 8 <span foreground='#6c71c4'></span>  "
++set $ws9   " 9 <span foreground='#93a1a1'></span>  "
++set $ws10  "10 <span foreground='#268bd2'></span>  "
++set $ws11  "11 <span foreground='#2aa198'></span>  "
++set $ws12  "12 <span foreground='#859900'></span>  "
++set $ws13  "13 <span foreground='#b58900'></span>  "
++set $ws14  "14 <span foreground='#cb4b10'></span>  "
++set $ws15  "15 <span foreground='#dc322f'></span>  "
++set $ws16  "16 <span foreground='#d33682'></span>  "
++set $ws17  "17 <span foreground='#6c71c4'></span>  "
++set $ws18  "18 <span foreground='#93a1a1'></span>  "
++set $ws19  "19 <span foreground='#268bd2'></span>  "
 +
 +# Invisible workspace
-+set $ws10 " "
++set $ws20 " "
  
  # Use Mouse+$mod to drag floating windows to their wanted position
  floating_modifier $mod
-@@ -40,7 +46,10 @@
+@@ -40,7 +56,10 @@
  hide_edge_borders smart
  
  # start a terminal
@@ -54,7 +64,7 @@
  
  # kill focused window
  bindsym $mod+Shift+q kill
-@@ -48,24 +57,32 @@
+@@ -48,24 +67,32 @@
  # rofi app and window launchers
  bindsym $mod+space exec rofi -show drun -theme regolith-theme
  bindsym $mod+Shift+space exec rofi -show run -theme regolith-theme
@@ -94,7 +104,7 @@
  
  # enter fullscreen mode for the focused container
  bindsym $mod+f fullscreen toggle
-@@ -74,19 +91,14 @@
+@@ -74,19 +101,14 @@
  bindsym $mod+minus gaps inner current minus 6
  bindsym $mod+plus gaps inner current plus 6
  
@@ -116,12 +126,21 @@
  
  # switch to workspace
  bindsym $mod+1 workspace $ws1
-@@ -98,11 +110,11 @@
- bindsym $mod+7 workspace $ws7
+@@ -99,10 +121,21 @@
  bindsym $mod+8 workspace $ws8
  bindsym $mod+9 workspace $ws9
--bindsym $mod+0 workspace $ws10
-+bindsym $mod+grave workspace $ws10
+ bindsym $mod+0 workspace $ws10
++bindsym $mod+Ctrl+1 workspace $ws11
++bindsym $mod+Ctrl+2 workspace $ws12
++bindsym $mod+Ctrl+3 workspace $ws13
++bindsym $mod+Ctrl+4 workspace $ws14
++bindsym $mod+Ctrl+5 workspace $ws15
++bindsym $mod+Ctrl+6 workspace $ws16
++bindsym $mod+Ctrl+7 workspace $ws17
++bindsym $mod+Ctrl+8 workspace $ws18
++bindsym $mod+Ctrl+9 workspace $ws19
++
++bindsym $mod+grave workspace $ws20
  
  # cycle between workspace
 -bindsym $mod+n workspace next
@@ -131,16 +150,25 @@
  
  # move focused container to workspace
  bindsym $mod+Shift+1 move container to workspace $ws1
-@@ -114,7 +126,7 @@
- bindsym $mod+Shift+7 move container to workspace $ws7
+@@ -115,6 +148,17 @@
  bindsym $mod+Shift+8 move container to workspace $ws8
  bindsym $mod+Shift+9 move container to workspace $ws9
--bindsym $mod+Shift+0 move container to workspace $ws10
-+bindsym $mod+Shift+grave move container to workspace $ws10
+ bindsym $mod+Shift+0 move container to workspace $ws10
++bindsym $mod+Shift+Ctrl+1 move container to workspace $ws11
++bindsym $mod+Shift+Ctrl+2 move container to workspace $ws12
++bindsym $mod+Shift+Ctrl+3 move container to workspace $ws13
++bindsym $mod+Shift+Ctrl+4 move container to workspace $ws14
++bindsym $mod+Shift+Ctrl+5 move container to workspace $ws15
++bindsym $mod+Shift+Ctrl+6 move container to workspace $ws16
++bindsym $mod+Shift+Ctrl+7 move container to workspace $ws17
++bindsym $mod+Shift+Ctrl+8 move container to workspace $ws18
++bindsym $mod+Shift+Ctrl+9 move container to workspace $ws19
++
++bindsym $mod+Shift+grave move container to workspace $ws20
  
  # reload the configuration file
  bindsym $mod+Shift+c reload
-@@ -122,12 +134,24 @@
+@@ -122,12 +166,24 @@
  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
  bindsym $mod+Shift+r restart
  
@@ -165,7 +193,7 @@
  # resize window (you can also use the mouse for that)
  mode "resize" {
          # These bindings trigger as soon as you enter the resize mode
-@@ -142,7 +166,6 @@
+@@ -142,7 +198,6 @@
          bindsym Return mode "default"
          bindsym Escape mode "default"
  }
@@ -173,7 +201,7 @@
  bindsym $mod+r mode "resize"
  
  # Disable titlebar
-@@ -167,25 +190,18 @@
+@@ -167,25 +222,18 @@
  focus_follows_mouse no
  
  # Configure the bar
@@ -200,7 +228,7 @@
        active_workspace   $base02  $base02  $base01
        inactive_workspace $base03  $base03  $base01
        urgent_workspace   $red     $red     $base3
-@@ -194,11 +210,18 @@
+@@ -194,11 +242,18 @@
  
  # Run other programs with i3
  
