@@ -1,0 +1,11 @@
+--- a/etc/config
++++ b/etc/config
+@@ -252,7 +252,7 @@
+ exec --no-startup-id /usr/bin/unclutter -b
+ 
+ # Draw the desktop background.  Randomly select from a series of photos starting with ESP_
+-exec_always --no-startup-id feh --bg-scale --random /usr/share/backgrounds/ESP_*
++exec_always --no-startup-id feh --bg-scale --randomize /usr/share/backgrounds/ESP_*
+ 
+ # Refresh wallpaper when monitor configuration changes.
+ exec --no-startup-id /usr/bin/xeventbind resolution /usr/bin/wallpaper-refresh.sh

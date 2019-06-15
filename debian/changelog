@@ -1,3 +1,16 @@
+regolith-i3 (4.16-1ubuntu16) bionic; urgency=medium
+
+  * https://github.com/regolith-linux/regolith-desktop/issues/25: 
+    Fix the randomize param "--randomize"  
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 15 Jun 2019 08:27:02 -0700
+
+regolith-i3 (4.16-1ubuntu15) bionic; urgency=medium
+
+  * Small tweak to workspace layout in bar. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 26 May 2019 17:29:33 -0700
+
 regolith-i3 (4.16-1ubuntu14) bionic; urgency=medium
 
   * Add 10-20 additional workspaces. 
