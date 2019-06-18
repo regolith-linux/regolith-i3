@@ -1,0 +1,13 @@
+Index: git/etc/config
+===================================================================
+--- git.orig/etc/config
++++ git/etc/config
+@@ -223,7 +223,7 @@ focus_follows_mouse no
+ 
+ # Configure the bar
+ bar {
+-  font pango:Source Code Pro Medium 13
++  font pango:Source Code Pro Medium 13, FontAwesome 13
+   separator_symbol " "
+   status_command i3blocks
+   tray_output none

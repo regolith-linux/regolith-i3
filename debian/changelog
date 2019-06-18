@@ -1,3 +1,10 @@
+regolith-i3 (4.16-1ubuntu17) bionic; urgency=medium
+
+  * https://github.com/regolith-linux/regolith-i3blocks/issues/1: 
+    Includes FontAwesome to fix malformed i3 bar icons
+
+ -- J "Gene" Hackman <hello@preciouschicken.com>  Mon, 17 Jun 2019 16:12:55 +0100
+
 regolith-i3 (4.16-1ubuntu16) bionic; urgency=medium
 
   * https://github.com/regolith-linux/regolith-desktop/issues/25: 
