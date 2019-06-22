@@ -8,3 +8,4 @@ start-unclutter-xfixes.patch
 i3bar-pango-color.patch
 feh-fix.patch
 bar-font-fix.patch
+remove-feh.patch

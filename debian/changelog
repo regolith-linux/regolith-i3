@@ -1,3 +1,19 @@
+regolith-i3 (4.16-1ubuntu18ppa2) bionic; urgency=medium
+
+  * Remove feh for wallpaper images.
+  * Add more comments for some undocumented settings. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 22 Jun 2019 16:37:29 -0700
+
+regolith-i3 (4.16-1ubuntu18ppa1) bionic; urgency=medium
+
+  * NOP version bump as I cannot submit @PreciousChicken's change
+    on his behalf and they do not have access to push to the Regolith
+    repos.
+  * Conform to Ubuntu PPA naming convention. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Mon, 17 Jun 2019 19:06:43 -0700
+
 regolith-i3 (4.16-1ubuntu17) bionic; urgency=medium
 
   * https://github.com/regolith-linux/regolith-i3blocks/issues/1: 

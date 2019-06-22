@@ -1,0 +1,42 @@
+--- a/etc/config
++++ b/etc/config
+@@ -208,9 +208,11 @@
+ gaps inner 5
+ gaps outer 0
+ 
++# Only enable gaps on a workspace when there is at least one container
+ smart_gaps on
+ 
+ # Window Border color
++# class                 border  backgr. text    indicator child_border
+ client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+ client.focused_inactive #002b36 #073642 #839496 #073642
+ client.unfocused        #002b36 #073642 #839496 #073642
+@@ -219,6 +221,7 @@
+ # Enable popup during fullscreen
+ popup_during_fullscreen smart
+ 
++# window focus follows your mouse movements as the mouse crosses window borders
+ focus_follows_mouse no
+ 
+ # Configure the bar
+@@ -240,7 +243,7 @@
+   }
+ }
+ 
+-# Run other programs with i3
++# Run programs when i3 starts
+ 
+ # Composite manager
+ exec --no-startup-id compton -f --config /etc/xdg/compton.conf
+@@ -250,10 +253,3 @@
+ 
+ # Hide the mouse pointer if unused for a duration
+ exec --no-startup-id /usr/bin/unclutter -b
+-
+-# Draw the desktop background.  Randomly select from a series of photos starting with ESP_
+-exec_always --no-startup-id feh --bg-scale --randomize /usr/share/backgrounds/ESP_*
+-
+-# Refresh wallpaper when monitor configuration changes.
+-exec --no-startup-id /usr/bin/xeventbind resolution /usr/bin/wallpaper-refresh.sh
+-
