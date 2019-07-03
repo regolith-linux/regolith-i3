@@ -1,0 +1,68 @@
+--- a/etc/config
++++ b/etc/config
+@@ -27,28 +27,25 @@
+ set $lucent    #00000088
+ 
+ # This is the labels which describe each i3 workspace.
+-set $ws1   " 1 <span foreground='#268bd2'></span> "
+-set $ws2   " 2 <span foreground='#2aa198'></span> "
+-set $ws3   " 3 <span foreground='#859900'></span> "
+-set $ws4   " 4 <span foreground='#b58900'></span> "
+-set $ws5   " 5 <span foreground='#cb4b10'></span> "
+-set $ws6   " 6 <span foreground='#dc322f'></span> "
+-set $ws7   " 7 <span foreground='#d33682'></span> "
+-set $ws8   " 8 <span foreground='#6c71c4'></span> "
+-set $ws9   " 9 <span foreground='#93a1a1'></span>  "
+-set $ws10  "10 <span foreground='#268bd2'></span>  "
+-set $ws11  "11 <span foreground='#2aa198'></span>  "
+-set $ws12  "12 <span foreground='#859900'></span>  "
+-set $ws13  "13 <span foreground='#b58900'></span>  "
+-set $ws14  "14 <span foreground='#cb4b10'></span>  "
+-set $ws15  "15 <span foreground='#dc322f'></span>  "
+-set $ws16  "16 <span foreground='#d33682'></span>  "
+-set $ws17  "17 <span foreground='#6c71c4'></span>  "
+-set $ws18  "18 <span foreground='#93a1a1'></span>  "
+-set $ws19  "19 <span foreground='#268bd2'></span>  "
+-
+-# Invisible workspace
+-set $ws20 " "
++set $ws1   "<span font_desc='Source Code Pro Medium 13'> 1 </span><span foreground='#268bd2'></span> "
++set $ws2   "<span font_desc='Source Code Pro Medium 13'> 2 </span><span foreground='#2aa198'></span> "
++set $ws3   "<span font_desc='Source Code Pro Medium 13'> 3 </span><span foreground='#859900'></span> "
++set $ws4   "<span font_desc='Source Code Pro Medium 13'> 4 </span><span foreground='#b58900'></span> "
++set $ws5   "<span font_desc='Source Code Pro Medium 13'> 5 </span><span foreground='#cb4b10'></span> "
++set $ws6   "<span font_desc='Source Code Pro Medium 13'> 6 </span><span foreground='#dc322f'></span> "
++set $ws7   "<span font_desc='Source Code Pro Medium 13'> 7 </span><span foreground='#d33682'></span> "
++set $ws8   "<span font_desc='Source Code Pro Medium 13'> 8 </span><span foreground='#6c71c4'></span> "
++set $ws9   "<span font_desc='Source Code Pro Medium 13'> 9 </span><span foreground='#93a1a1'></span>  "
++set $ws10  "<span font_desc='Source Code Pro Medium 13'>10 </span><span foreground='#268bd2'></span>  "
++set $ws11  "<span font_desc='Source Code Pro Medium 13'>11 </span><span foreground='#2aa198'></span>  "
++set $ws12  "<span font_desc='Source Code Pro Medium 13'>12 </span><span foreground='#859900'></span>  "
++set $ws13  "<span font_desc='Source Code Pro Medium 13'>13 </span><span foreground='#b58900'></span>  "
++set $ws14  "<span font_desc='Source Code Pro Medium 13'>14 </span><span foreground='#cb4b10'></span>  "
++set $ws15  "<span font_desc='Source Code Pro Medium 13'>15 </span><span foreground='#dc322f'></span>  "
++set $ws16  "<span font_desc='Source Code Pro Medium 13'>16 </span><span foreground='#d33682'></span>  "
++set $ws17  "<span font_desc='Source Code Pro Medium 13'>17 </span><span foreground='#6c71c4'></span>  "
++set $ws18  "<span font_desc='Source Code Pro Medium 13'>18 </span><span foreground='#93a1a1'></span>  "
++set $ws19  "<span font_desc='Source Code Pro Medium 13'>19 </span><span foreground='#268bd2'></span>  "
+ 
+ # Use Mouse+$mod to drag floating windows to their wanted position
+ floating_modifier $mod
+@@ -131,8 +128,6 @@
+ bindsym $mod+Ctrl+8 workspace $ws18
+ bindsym $mod+Ctrl+9 workspace $ws19
+ 
+-bindsym $mod+grave workspace $ws20
+-
+ # cycle between workspace
+ bindsym $mod+Tab workspace next
+ bindsym $mod+Shift+Tab workspace prev
+@@ -248,7 +243,7 @@
+ # Composite manager
+ exec --no-startup-id compton -f --config /etc/xdg/compton.conf
+ 
+-# Lanuch the shortcut Conky window on first login
++# Launch the shortcut Conky window on first login
+ exec --no-startup-id /usr/bin/regolith-ftue.sh
+ 
+ # Hide the mouse pointer if unused for a duration

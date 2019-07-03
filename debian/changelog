@@ -1,3 +1,16 @@
+regolith-i3 (4.16-1ubuntu18ppa4) bionic; urgency=medium
+
+  * Add sourcecodepro font specification to workspace index.
+  * Remove invisible workspace, sort order inconsistent in bar.
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 23 Jun 2019 09:00:45 -0700
+
+regolith-i3 (4.16-1ubuntu18ppa3) bionic; urgency=medium
+
+  * Remove feh and xeventbind from package metadata. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 22 Jun 2019 22:24:44 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa2) bionic; urgency=medium
 
   * Remove feh for wallpaper images.
