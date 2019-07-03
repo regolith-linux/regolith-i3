@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu18ppa5) bionic; urgency=medium
+
+  * Index workspaces.  Fixes #59.
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Tue, 02 Jul 2019 21:15:00 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa4) bionic; urgency=medium
 
   * Add sourcecodepro font specification to workspace index.
