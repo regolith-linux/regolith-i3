@@ -1,0 +1,41 @@
+--- a/etc/config
++++ b/etc/config
+@@ -180,20 +180,34 @@
+ bindsym $mod+s exec gnome-control-center sound
+ 
+ # resize window (you can also use the mouse for that)
+-mode "resize" {
++mode "Resize Mode" {
+         # These bindings trigger as soon as you enter the resize mode
+-
+-        # same bindings, but for the arrow keys
+         bindsym Left resize shrink width 6 px or 6 ppt
+         bindsym Down resize grow height 6 px or 6 ppt
+         bindsym Up resize shrink height 6 px or 6 ppt
+         bindsym Right resize grow width 6 px or 6 ppt
+ 
++        bindsym Shift+Left resize shrink width 12 px or 12 ppt
++        bindsym Shift+Down resize grow height 12 px or 12 ppt
++        bindsym Shift+Up resize shrink height 12 px or 12 ppt
++        bindsym Shift+Right resize grow width 12 px or 12 ppt
++
++        bindsym h resize shrink width 6 px or 6 ppt
++        bindsym k resize grow height 6 px or 6 ppt
++        bindsym j resize shrink height 6 px or 6 ppt
++        bindsym l resize grow width 6 px or 6 ppt
++
++        bindsym Shift+h resize shrink width 12 px or 12 ppt
++        bindsym Shift+k resize grow height 12 px or 12 ppt
++        bindsym Shift+j resize shrink height 12 px or 12 ppt
++        bindsym Shift+l resize grow width 12 px or 12 ppt
++
+         # back to normal: Enter or Escape
+         bindsym Return mode "default"
+         bindsym Escape mode "default"
++        bindsym $mod+r mode "default"
+ }
+-bindsym $mod+r mode "resize"
++bindsym $mod+r mode "Resize Mode"
+ 
+ # Disable titlebar
+ new_window pixel 1

@@ -11,3 +11,5 @@ bar-font-fix.patch
 remove-feh.patch
 sourcecodepro-font-fix.patch
 indexed-workspaces.patch
+conky-exec-fix.patch
+vim-resize-keybindings.patch

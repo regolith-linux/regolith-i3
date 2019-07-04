@@ -1,3 +1,10 @@
+regolith-i3 (4.16-1ubuntu18ppa6) bionic; urgency=medium
+
+  * Add resize mode vim key bindings.
+  * Add fix from @craigerrington for Conky cursor. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Thu, 04 Jul 2019 13:44:29 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa5) bionic; urgency=medium
 
   * Index workspaces.  Fixes #59.
