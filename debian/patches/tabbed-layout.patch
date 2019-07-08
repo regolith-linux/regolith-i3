@@ -1,0 +1,14 @@
+Index: regolith-i3/etc/config
+===================================================================
+--- regolith-i3.orig/etc/config
++++ regolith-i3/etc/config
+@@ -107,6 +107,9 @@ bindsym $mod+Shift+f floating toggle
+ # change focus between tiling / floating windows
+ bindsym $mod+Shift+t focus mode_toggle
+ 
++# toggle tabbed mode
++bindsym $mod+t layout toggle tabbed splith splitv
++
+ # switch to workspace
+ bindsym $mod+1 workspace $ws1
+ bindsym $mod+2 workspace $ws2
