@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu18ppa8) bionic; urgency=medium
+
+  * Move colors and workspace lables to Xresources.
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Tue, 09 Jul 2019 08:52:59 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa7) bionic; urgency=medium
 
   * Ship @appelgriebsch's addition to toggle layout mode. 

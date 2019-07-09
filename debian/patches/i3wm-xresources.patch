@@ -1,0 +1,166 @@
+Index: regolith-i3/etc/config
+===================================================================
+--- regolith-i3.orig/etc/config
++++ regolith-i3/etc/config
+@@ -6,46 +6,28 @@
+ # Alt key is Mod1, and Windows key is Mod4
+ set $mod Mod4
+ 
+-# This is the Solarized color palette.
+-set $base03    #002b36
+-set $base02    #073642
+-set $base01    #586e75
+-set $base00    #657b83
+-set $base0     #839496
+-set $base1     #93a1a1
+-set $base2     #eee8d5
+-set $base3     #fdf6e3
+-set $yellow    #b58900
+-set $orange    #cb4b10
+-set $red       #dc322f
+-set $magenta   #d33682
+-set $violet    #6c71c4
+-set $blue      #268bd2
+-set $cyan      #2aa198
+-set $green     #859900
+-set $transparent #00000000
+-set $lucent    #00000088
+-
+-# This is the labels which describe each i3 workspace.
+-set $ws1   "1:<span font_desc='Source Code Pro Medium 13'> 1 </span><span foreground='#268bd2'></span> "
+-set $ws2   "2:<span font_desc='Source Code Pro Medium 13'> 2 </span><span foreground='#2aa198'></span> "
+-set $ws3   "3:<span font_desc='Source Code Pro Medium 13'> 3 </span><span foreground='#859900'></span> "
+-set $ws4   "4:<span font_desc='Source Code Pro Medium 13'> 4 </span><span foreground='#b58900'></span> "
+-set $ws5   "5:<span font_desc='Source Code Pro Medium 13'> 5 </span><span foreground='#cb4b10'></span> "
+-set $ws6   "6:<span font_desc='Source Code Pro Medium 13'> 6 </span><span foreground='#dc322f'></span> "
+-set $ws7   "7:<span font_desc='Source Code Pro Medium 13'> 7 </span><span foreground='#d33682'></span> "
+-set $ws8   "8:<span font_desc='Source Code Pro Medium 13'> 8 </span><span foreground='#6c71c4'></span> "
+-set $ws9   "9:<span font_desc='Source Code Pro Medium 13'> 9 </span><span foreground='#93a1a1'></span>  "
+-set $ws10  "10:<span font_desc='Source Code Pro Medium 13'>10 </span><span foreground='#268bd2'></span>  "
+-set $ws11  "11:<span font_desc='Source Code Pro Medium 13'>11 </span><span foreground='#2aa198'></span>  "
+-set $ws12  "12:<span font_desc='Source Code Pro Medium 13'>12 </span><span foreground='#859900'></span>  "
+-set $ws13  "13:<span font_desc='Source Code Pro Medium 13'>13 </span><span foreground='#b58900'></span>  "
+-set $ws14  "14:<span font_desc='Source Code Pro Medium 13'>14 </span><span foreground='#cb4b10'></span>  "
+-set $ws15  "15:<span font_desc='Source Code Pro Medium 13'>15 </span><span foreground='#dc322f'></span>  "
+-set $ws16  "16:<span font_desc='Source Code Pro Medium 13'>16 </span><span foreground='#d33682'></span>  "
+-set $ws17  "17:<span font_desc='Source Code Pro Medium 13'>17 </span><span foreground='#6c71c4'></span>  "
+-set $ws18  "18:<span font_desc='Source Code Pro Medium 13'>18 </span><span foreground='#93a1a1'></span>  "
+-set $ws19  "19:<span font_desc='Source Code Pro Medium 13'>19 </span><span foreground='#268bd2'></span>  "
++# Color values are defined in ~/.Xresources-regolith
++
++# These are the labels which define each i3 workspace.
++set_from_resource $ws1  i3-wm.workspace.01.name "1"
++set_from_resource $ws2  i3-wm.workspace.02.name "2"
++set_from_resource $ws3  i3-wm.workspace.03.name "3"
++set_from_resource $ws4  i3-wm.workspace.04.name "4"
++set_from_resource $ws5  i3-wm.workspace.05.name "5"
++set_from_resource $ws6  i3-wm.workspace.06.name "6"
++set_from_resource $ws7  i3-wm.workspace.07.name "7"
++set_from_resource $ws8  i3-wm.workspace.08.name "8"
++set_from_resource $ws9  i3-wm.workspace.09.name "9"
++set_from_resource $ws10 i3-wm.workspace.10.name "10"
++set_from_resource $ws11 i3-wm.workspace.11.name "11"
++set_from_resource $ws12 i3-wm.workspace.12.name "12"
++set_from_resource $ws13 i3-wm.workspace.13.name "13"
++set_from_resource $ws14 i3-wm.workspace.14.name "14"
++set_from_resource $ws15 i3-wm.workspace.15.name "15"
++set_from_resource $ws16 i3-wm.workspace.16.name "16"
++set_from_resource $ws17 i3-wm.workspace.17.name "17"
++set_from_resource $ws18 i3-wm.workspace.18.name "18"
++set_from_resource $ws19 i3-wm.workspace.19.name "19"
+ 
+ # Use Mouse+$mod to drag floating windows to their wanted position
+ floating_modifier $mod
+@@ -223,12 +205,37 @@ gaps outer 0
+ # Only enable gaps on a workspace when there is at least one container
+ smart_gaps on
+ 
++set_from_resource $focused.color.border i3-wm.client.focused.color.border "#002b36"
++set_from_resource $focused.color.background i3-wm.client.focused.color.background "#586e75"
++set_from_resource $focused.color.text i3-wm.client.focused.color.text "#fdf6e3"
++set_from_resource $focused.color.indicator i3-wm.client.focused.color.indicator "#268bd2"
++set_from_resource $focused.color.child_border i3-wm.client.focused.color.child_border
++
++set_from_resource $focused_inactive.color.border i3-wm.client.focused_inactive.color.border "#002b36"
++set_from_resource $focused_inactive.color.background i3-wm.client.focused_inactive.color.background "#073642"
++set_from_resource $focused_inactive.color.text i3-wm.client.focused_inactive.color.text "#839496"
++set_from_resource $focused_inactive.color.indicator i3-wm.client.focused_inactive.color.indicator "#073642"
++set_from_resource $focused_inactive.color.child_border i3-wm.client.focused_inactive.color.child_border 
++
++set_from_resource $unfocused.color.border i3-wm.client.unfocused.color.border "#002b36"
++set_from_resource $unfocused.color.background i3-wm.client.unfocused.color.background "#073642"
++set_from_resource $unfocused.color.text i3-wm.client.unfocused.color.text "#839496"
++set_from_resource $unfocused.color.indicator i3-wm.client.unfocused.color.indicator "#073642"
++set_from_resource $unfocused.color.child_border i3-wm.client.unfocused.color.child_border
++
++set_from_resource $urgent.color.border i3-wm.client.urgent.color.border "#002b36"
++set_from_resource $urgent.color.background i3-wm.client.urgent.color.background "#dc322f"
++set_from_resource $urgent.color.text i3-wm.client.urgent.color.text "#fdf6e3"
++set_from_resource $urgent.color.indicator i3-wm.client.urgent.color.indicator "#002b36"
++set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_border
++
++
+ # Window Border color
+-# class                 border  backgr. text    indicator child_border
+-client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+-client.focused_inactive #002b36 #073642 #839496 #073642
+-client.unfocused        #002b36 #073642 #839496 #073642
+-client.urgent           #002b36 #dc322f #fdf6e3 #002b36
++# class                 border                             background                         text                               indicator                          child_border
++client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
++client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
++client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
++client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+ 
+ # Enable popup during fullscreen
+ popup_during_fullscreen smart
+@@ -236,6 +243,26 @@ popup_during_fullscreen smart
+ # window focus follows your mouse movements as the mouse crosses window borders
+ focus_follows_mouse no
+ 
++set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#002b36"
++set_from_resource $i3-wm.bar.statusline.color i3-wm.bar.statusline.color "#93a1a1"
++set_from_resource $i3-wm.bar.separator.color i3-wm.bar.separator.color "#268bd2"
++
++set_from_resource $i3-wm.bar.workspace.focused.border.color i3-wm.bar.workspace.focused.border.color "#073642"
++set_from_resource $i3-wm.bar.workspace.focused.background.color i3-wm.bar.workspace.focused.background.color "#073642"
++set_from_resource $i3-wm.bar.workspace.focused.text.color i3-wm.bar.workspace.focused.text.color "#eee8d5"
++
++set_from_resource $i3-wm.bar.workspace.active.border.color i3-wm.bar.workspace.active.border.color "#073642"
++set_from_resource $i3-wm.bar.workspace.active.background.color i3-wm.bar.workspace.active.background.color "#073642"
++set_from_resource $i3-wm.bar.workspace.active.text.color i3-wm.bar.workspace.active.text.color "#586e75"
++
++set_from_resource $i3-wm.bar.workspace.inactive.border.color i3-wm.bar.workspace.inactive.border.color "#002b36"
++set_from_resource $i3-wm.bar.workspace.inactive.background.color i3-wm.bar.workspace.inactive.background.color "#002b36"
++set_from_resource $i3-wm.bar.workspace.inactive.text.color i3-wm.bar.workspace.inactive.text.color "#586e75"
++
++set_from_resource $i3-wm.bar.workspace.urgent.border.color i3-wm.bar.workspace.urgent.border.color "#dc322f"
++set_from_resource $i3-wm.bar.workspace.urgent.background.color i3-wm.bar.workspace.urgent.background.color "#dc322f"
++set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urgent.text.color "#fdf6e3"
++
+ # Configure the bar
+ bar {
+   font pango:Source Code Pro Medium 13, FontAwesome 13
+@@ -245,14 +272,15 @@ bar {
+   strip_workspace_numbers yes
+ 
+   colors {
+-      background $base03
+-      statusline $base1
+-      separator  $blue
++      background $i3-wm.bar.background.color
++      statusline $i3-wm.bar.statusline.color
++      separator  $i3-wm.bar.separator.color
++
+ #                        BORDER  BACKGROUND TEXT
+-      focused_workspace  $base02  $base02  $base2
+-      active_workspace   $base02  $base02  $base01
+-      inactive_workspace $base03  $base03  $base01
+-      urgent_workspace   $red     $red     $base3
++      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
++      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
++      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
++      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+   }
+ }
+ 
