@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu18ppa7) bionic; urgency=medium
+
+  * Ship @appelgriebsch's addition to toggle layout mode. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 07 Jul 2019 17:57:05 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa6) bionic; urgency=medium
 
   * Add resize mode vim key bindings.
