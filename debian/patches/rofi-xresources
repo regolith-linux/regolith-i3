@@ -1,0 +1,20 @@
+Index: regolith-i3/etc/config
+===================================================================
+--- regolith-i3.orig/etc/config
++++ regolith-i3/etc/config
+@@ -43,10 +43,12 @@ bindsym $mod+Shift+Return exec /usr/bin/
+ # kill focused window
+ bindsym $mod+Shift+q kill
+ 
++set_from_resource $rofiTheme rofi.theme "regolith-theme"
++
+ # rofi app and window launchers
+-bindsym $mod+space exec rofi -show drun -theme regolith-theme
+-bindsym $mod+Shift+space exec rofi -show run -theme regolith-theme
+-bindsym $mod+Ctrl+space exec rofi -show window -theme regolith-theme
++bindsym $mod+space exec rofi -show drun -theme $rofiTheme
++bindsym $mod+Shift+space exec rofi -show run -theme $rofiTheme
++bindsym $mod+Ctrl+space exec rofi -show window -theme $rofiTheme
+ 
+ # change focus
+ bindsym $mod+Left focus left

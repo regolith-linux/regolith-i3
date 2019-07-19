@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu18ppa9) bionic; urgency=medium
+
+  * Configure rofi theme from Xresources. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Thu, 18 Jul 2019 21:00:08 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa8) bionic; urgency=medium
 
   * Move colors and workspace lables to Xresources.

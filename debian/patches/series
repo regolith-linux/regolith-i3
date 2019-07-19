@@ -15,3 +15,4 @@ conky-exec-fix.patch
 vim-resize-keybindings.patch
 tabbed-layout.patch
 i3wm-xresources.patch
+rofi-xresources
