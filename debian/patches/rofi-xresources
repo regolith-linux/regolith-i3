@@ -18,3 +18,19 @@ Index: regolith-i3/etc/config
  
  # change focus
  bindsym $mod+Left focus left
+@@ -263,11 +265,13 @@ set_from_resource $i3-wm.bar.workspace.u
+ set_from_resource $i3-wm.bar.workspace.urgent.background.color i3-wm.bar.workspace.urgent.background.color "#dc322f"
+ set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urgent.text.color "#fdf6e3"
+ 
++set_from_resource $i3-wm.bar.font i3-wm.bar.font "pango:Source Code Pro Medium 13, FontAwesome 13"
++
+ # Configure the bar
+ bar {
+-  font pango:Source Code Pro Medium 13, FontAwesome 13
++  font $i3-wm.bar.font
+   separator_symbol " "
+-  status_command i3blocks
++  status_command i3xrocks -c ~/.config/i3xrocks/i3xrocks.conf
+   tray_output none
+   strip_workspace_numbers yes
+ 

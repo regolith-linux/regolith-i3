@@ -1,3 +1,9 @@
+regolith-i3 (4.16-1ubuntu18ppa10) bionic; urgency=medium
+
+  * Update i3blocks to i3xrocks.  
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Wed, 24 Jul 2019 20:56:09 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa9) bionic; urgency=medium
 
   * Configure rofi theme from Xresources. 
