@@ -16,7 +16,7 @@ override_dh_auto_test:
 
 override_dh_auto_configure:
 	# The default is /usr/share/doc/i3
-	dh_auto_configure -- --docdir=/usr/share/doc/regolith-i3-wm
+	dh_auto_configure -- --docdir=/usr/share/doc/regolith-i3-wm --disable-sanitizers
 
 override_dh_builddeb:
 	# bintray does not support xz currently.

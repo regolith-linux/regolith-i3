@@ -1,3 +1,10 @@
+regolith-i3 (4.16-1ubuntu18ppa11) bionic; urgency=medium
+
+  * Disable sanitizers.  In support of
+    https://github.com/regolith-linux/regolith-desktop/issues/76. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Wed, 31 Jul 2019 19:18:10 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa10) bionic; urgency=medium
 
   * Update i3blocks to i3xrocks.  
