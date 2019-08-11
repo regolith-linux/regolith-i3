@@ -1,3 +1,10 @@
+regolith-i3 (4.16-1ubuntu18ppa12) bionic; urgency=medium
+
+  * Add file to define version of last breaking change.
+    In support of https://github.com/regolith-linux/regolith-desktop/issues/85 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 10 Aug 2019 22:43:43 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa11) bionic; urgency=medium
 
   * Disable sanitizers.  In support of

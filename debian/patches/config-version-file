@@ -1,0 +1,21 @@
+Index: regolith-i3/Makefile.am
+===================================================================
+--- regolith-i3.orig/Makefile.am
++++ regolith-i3/Makefile.am
+@@ -33,7 +33,8 @@ dist_bin_SCRIPTS = \
+ i3confdir = $(sysconfdir)/i3
+ dist_i3conf_DATA = \
+ 	etc/config \
+-	etc/config.keycodes
++	etc/config.keycodes \
++	etc/config-version
+ 
+ applicationsdir = $(datarootdir)/applications
+ 
+Index: regolith-i3/etc/config-version
+===================================================================
+--- /dev/null
++++ regolith-i3/etc/config-version
+@@ -0,0 +1 @@
++4.16-1ubuntu18ppa11
+\ No newline at end of file
