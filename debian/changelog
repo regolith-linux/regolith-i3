@@ -1,3 +1,12 @@
+regolith-i3 (4.16-1ubuntu18ppa13) disco; urgency=medium
+
+  * Remove config-version file.
+  * Make /etc/i3/config baseline 4.16.1 i3-gaps config.
+  * Stage Regolith i3 in /etc/regolith/i3/config.
+  * Load i3xrocks file from /etc/regolith/i3xrocks/config. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Wed, 14 Aug 2019 22:35:35 -0700
+
 regolith-i3 (4.16-1ubuntu18ppa12) bionic; urgency=medium
 
   * Add file to define version of last breaking change.

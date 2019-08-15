@@ -1,0 +1,13 @@
+Index: regolith-i3/Makefile.am
+===================================================================
+--- regolith-i3.orig/Makefile.am
++++ regolith-i3/Makefile.am
+@@ -34,7 +34,7 @@ i3confdir = $(sysconfdir)/i3
+ dist_i3conf_DATA = \
+ 	etc/config \
+ 	etc/config.keycodes \
+-	etc/config-version
++	etc/regolith/i3/config
+ 
+ applicationsdir = $(datarootdir)/applications
+ 
